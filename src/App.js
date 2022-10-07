@@ -17,11 +17,10 @@ function App() {
   return (
     <div className="App">
       <button onClick={onClickHandle}>Add</button>
-      <button>Remove</button>
-      <button>Add Value</button>
-      <button>Remove Value</button>
-      <button>Clear All</button>
-
+      <button onClick={() => dispatch(decrement())}>Remove</button>
+      <button onClick={() => dispatch(incrementByValue(6))}>Add Value</button>
+      <button onClick={() => dispatch(decrementByValue(4))}>Remove Value</button>
+      <button onClick={() => dispatch(clearAll())}>Clear All</button>
       <p>{data.count}</p>
     </div>
   );
