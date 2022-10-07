@@ -5,9 +5,11 @@ import {
   incrementByValue,
   decrementByValue,
   clearAll,
-} from "./store/actions/counterAction/index";
+} from "./store/slice/counterSlice";
+
+//for react-redux path "./store/actions/counterAction/index"//
 function App() {
-  const data = useSelector((state) => state.dataerReducer);
+  const data = useSelector((state) => state.counterReducer);
   const dispatch = useDispatch();
   console.log({ data });
 
@@ -19,7 +21,9 @@ function App() {
       <button onClick={onClickHandle}>Add</button>
       <button onClick={() => dispatch(decrement())}>Remove</button>
       <button onClick={() => dispatch(incrementByValue(6))}>Add Value</button>
-      <button onClick={() => dispatch(decrementByValue(4))}>Remove Value</button>
+      <button onClick={() => dispatch(decrementByValue(4))}>
+        Remove Value
+      </button>
       <button onClick={() => dispatch(clearAll())}>Clear All</button>
       <p>{data.count}</p>
     </div>
