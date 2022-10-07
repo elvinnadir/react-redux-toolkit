@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useSelector, useDispatch } from "react-redux";
+import {
+  increment,
+  decrement,
+  incrementByValue,
+  decrementByValue,
+  clearAll,
+} from "./store/actions/counterAction/index";
 function App() {
+  const data = useSelector((state) => state.dataerReducer);
+  const dispatch = useDispatch();
+  console.log({ data });
+
+  const onClickHandle = () => {
+    dispatch(increment());
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={onClickHandle}>Add</button>
+      <button>Remove</button>
+      <button>Add Value</button>
+      <button>Remove Value</button>
+      <button>Clear All</button>
+
+      <p>{data.count}</p>
     </div>
   );
 }
